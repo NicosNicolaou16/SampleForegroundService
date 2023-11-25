@@ -21,20 +21,25 @@ import com.nicos.sampleforegroundservice.R
 class LocationService : Service(), LocationListener {
 
 
+    companion object {
+        private const val locationChannelId = "locationChannelId"
+        private const val channelName = "locationName"
+    }
+
     override fun onCreate() {
         notificationService()
         super.onCreate()
     }
 
     private fun notificationService() {
-        Notification.Builder(this, "Location Channel").apply {
-            setContentTitle("Location Service")
+        Notification.Builder(this, locationChannelId).apply {
+            setContentTitle(getString(R.string.location_service))
             setOngoing(true)
-            setContentText("Running Service to find you location")
+            setContentText(getString(R.string.running_service_to_find_you_location))
             setSmallIcon(R.drawable.ic_notifcation_icon)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            NotificationChannel("Location Channel", "Location", importance).apply {
-                description = "Running Service to find you location"
+            NotificationChannel(locationChannelId, channelName, importance).apply {
+                description = getString(R.string.running_service_to_find_you_location)
                 with((this@LocationService.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)) {
                     createNotificationChannel(this@apply)
                 }
