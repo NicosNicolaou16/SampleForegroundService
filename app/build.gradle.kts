@@ -5,6 +5,7 @@ plugins {
 
 android {
     namespace = "com.nicos.sampleforegroundservice"
+    buildToolsVersion = "34.0.0"
     compileSdk = 34
 
     defaultConfig {
@@ -47,7 +48,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
