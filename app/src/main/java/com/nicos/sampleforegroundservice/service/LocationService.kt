@@ -8,6 +8,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.ServiceInfo
 import android.location.Criteria
 import android.location.Location
 import android.location.LocationListener
@@ -16,6 +17,7 @@ import android.os.Build
 import android.os.IBinder
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import androidx.core.app.ServiceCompat
 import com.nicos.sampleforegroundservice.R
 
 class LocationService : Service(), LocationListener {
@@ -48,7 +50,12 @@ class LocationService : Service(), LocationListener {
                     createNotificationChannel(this@apply)
                 }
             }
-            this@LocationService.startForeground(1, this.build())
+            //need core 1.12 and higher and SDK 29 and higher
+            ServiceCompat.startForeground(
+                this@LocationService, 1, this.build(),
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
+            )
+            //this@LocationService.startForeground(1, this.build())
         }
     }
 
@@ -63,7 +70,7 @@ class LocationService : Service(), LocationListener {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             findTheLocationForSdkBiggerThan30(locationManager = locationManager)
         } else {
-            findTheLocationForSdkLowerThe31(locationManager = locationManager)
+            findTheLocationForSdkLowerThan31(locationManager = locationManager)
         }
         return START_STICKY
     }
@@ -77,7 +84,7 @@ class LocationService : Service(), LocationListener {
         )
     }
 
-    private fun findTheLocationForSdkLowerThe31(locationManager: LocationManager) {
+    private fun findTheLocationForSdkLowerThan31(locationManager: LocationManager) {
         /**
          * this code is deprecated from the SDK 34 but we need it for lower than SDK 34
          * */

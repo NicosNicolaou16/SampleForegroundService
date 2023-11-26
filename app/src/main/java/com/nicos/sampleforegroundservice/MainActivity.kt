@@ -49,9 +49,7 @@ fun StartServiceButton() {
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissionList ->
         permissionList.forEach { (permission, isGrande) ->
-            if (isGrande) {
-                context.startService(Intent(context, LocationService::class.java))
-            }
+            if (isGrande) context.startService(Intent(context, LocationService::class.java))
         }
         Toast.makeText(context, R.string.starting_service, Toast.LENGTH_SHORT).show()
     }
