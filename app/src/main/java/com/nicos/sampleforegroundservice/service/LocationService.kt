@@ -20,10 +20,11 @@ import com.nicos.sampleforegroundservice.R
 
 class LocationService : Service(), LocationListener {
 
-
     companion object {
         private const val locationChannelId = "locationChannelId"
         private const val channelName = "locationName"
+        private const val minTimeLocationUpdateInMillisecond = 10000L
+        private const val minDistanceLocationUpdateInMeter = 1000F
     }
 
     override fun onCreate() {
@@ -31,6 +32,9 @@ class LocationService : Service(), LocationListener {
         super.onCreate()
     }
 
+    /**
+     * The Notification is mandatory for background services
+     * */
     private fun notificationService() {
         Notification.Builder(this, locationChannelId).apply {
             setContentTitle(getString(R.string.location_service))
@@ -48,49 +52,74 @@ class LocationService : Service(), LocationListener {
         }
     }
 
+    /**
+     * Main process for the service - find the background location and print it with Toast Message
+     * */
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (!checkIfLocationPermissionIsGrande()) return START_NOT_STICKY
+
         val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            if (checkForGrandeLocationPermission()) {
-                locationManager.requestLocationUpdates(
-                    LocationManager.FUSED_PROVIDER,
-                    10000,
-                    0f,
-                    this@LocationService
-                )
-            } else {
-                val criteria = Criteria().apply {
-                    accuracy = Criteria.ACCURACY_COARSE
-                    powerRequirement =
-                        Criteria.POWER_LOW
-                }
-                val provider = locationManager.getBestProvider(
-                    criteria,
-                    false
-                )
-                if (provider != null) {
-                    locationManager.requestLocationUpdates(
-                        provider,
-                        10000,
-                        0f,
-                        this@LocationService
-                    )
-                }
-            }
+            findTheLocationForSdkBiggerThan30(locationManager = locationManager)
+        } else {
+            findTheLocationForSdkLowerThe31(locationManager = locationManager)
         }
         return START_STICKY
     }
 
+    private fun findTheLocationForSdkBiggerThan30(locationManager: LocationManager) {
+        locationManager.requestLocationUpdates(
+            LocationManager.FUSED_PROVIDER,
+            minTimeLocationUpdateInMillisecond,
+            minDistanceLocationUpdateInMeter,
+            this@LocationService
+        )
+    }
+
+    private fun findTheLocationForSdkLowerThe31(locationManager: LocationManager) {
+        /**
+         * this code is deprecated from the SDK 34 but we need it for lower than SDK 34
+         * */
+        Criteria().apply {
+            accuracy = Criteria.ACCURACY_COARSE
+            powerRequirement =
+                Criteria.POWER_LOW
+
+            val provider = locationManager.getBestProvider(
+                this,
+                false
+            )
+            if (provider != null) {
+                locationManager.requestLocationUpdates(
+                    provider,
+                    minTimeLocationUpdateInMillisecond,
+                    minDistanceLocationUpdateInMeter,
+                    this@LocationService
+                )
+            }
+        }
+    }
+
+    /**
+     * Mandatory override when extend the Service()
+     * */
     override fun onBind(intent: Intent?): IBinder? {
         return null
     }
 
+    /**
+     * Call back to get the update coordination
+     * */
     override fun onLocationChanged(location: Location) {
-        Toast.makeText(this, "${location.latitude} and ${location.longitude}", Toast.LENGTH_LONG)
-            .show()
+        Toast.makeText(
+            this,
+            "${location.latitude} ${this.getString(R.string.and)} ${location.longitude}",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
-    private fun checkForGrandeLocationPermission() = ActivityCompat.checkSelfPermission(
+    private fun checkIfLocationPermissionIsGrande() = ActivityCompat.checkSelfPermission(
         this,
         Manifest.permission.ACCESS_FINE_LOCATION
     ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
