@@ -48,7 +48,7 @@
 
         <!--Broadcast Receiver-->
         <receiver
-            android:name=".broadcast_receiver.RestartService"
+            android:name=".broadcast_receiver.RestartServiceBroadcastReceiver"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

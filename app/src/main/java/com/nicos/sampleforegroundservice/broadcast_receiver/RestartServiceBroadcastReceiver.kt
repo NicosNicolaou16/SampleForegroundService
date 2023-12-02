@@ -11,7 +11,7 @@ import com.nicos.sampleforegroundservice.utils.secure_share_preferences.SecureSh
  * This broadcast receiver is using to start the service after reboot the mobile device if user
  * has enabled the service
  * */
-class RestartService : BroadcastReceiver() {
+class RestartServiceBroadcastReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val secureSharePreferences = context?.let { SecureSharePreferences(context = it) }
 
