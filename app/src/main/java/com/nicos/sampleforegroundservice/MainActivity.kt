@@ -24,6 +24,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.nicos.sampleforegroundservice.service.LocationService
 import com.nicos.sampleforegroundservice.ui.theme.SampleForegroundServiceTheme
+import com.nicos.sampleforegroundservice.utils.secure_share_preferences.SecureSharePreferences
+
+const val RESTART_SERVICE = "restart_service"
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,12 +48,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun StartServiceButton() {
     val context = LocalContext.current
+    val secureSharePreferences = SecureSharePreferences(context = context)
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissionList ->
         permissionList.forEach { (permission, isGrande) ->
             if (isGrande) context.startService(Intent(context, LocationService::class.java))
         }
+        secureSharePreferences.saveBooleanValue(RESTART_SERVICE, true)
         Toast.makeText(context, R.string.starting_service, Toast.LENGTH_SHORT).show()
     }
     Column(
@@ -64,6 +69,7 @@ fun StartServiceButton() {
         }
         Button(onClick = {
             context.stopService(Intent(context, LocationService::class.java))
+            secureSharePreferences.saveBooleanValue(RESTART_SERVICE, false)
         }) {
             Text(text = stringResource(R.string.stop_service))
         }

@@ -28,12 +28,15 @@ The permission for <uses-permission android:name="android.permission.FOREGROUND_
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="location" />
+
+        <!--other code here-->
     </application>
 </manifest>
 ```
 
 # References
 https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
+https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device <br />
 
 ## Check my article 
 

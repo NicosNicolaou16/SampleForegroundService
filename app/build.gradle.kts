@@ -50,6 +50,8 @@ android {
     }
 }
 
+val securityCryptoVersion by extra("1.1.0-alpha06")
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -67,4 +69,6 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    //Android Native Security
+    implementation("androidx.security:security-crypto:$securityCryptoVersion")
 }
