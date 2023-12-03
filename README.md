@@ -19,6 +19,9 @@ The permission for <uses-permission android:name="android.permission.FOREGROUND_
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
 
+    <!--Restart Service After Reboot the Mobile Device-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application>
         <!--other code here-->
 
@@ -29,6 +32,16 @@ The permission for <uses-permission android:name="android.permission.FOREGROUND_
             android:exported="false"
             android:foregroundServiceType="location" />
 
+        <!--Broadcast Receiver (Optional)-->
+        <receiver
+            android:name=".broadcast_receiver.RestartServiceBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        
         <!--other code here-->
     </application>
 </manifest>
