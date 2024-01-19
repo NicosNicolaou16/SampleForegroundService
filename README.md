@@ -2,6 +2,10 @@
 This sample project shows the setup for the foreground service. The service in this sample project is a foreground service to request location.
 The permission for <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" /> is depend of the foreground service type.
 
+## Similar project with (Dart Language)
+
+https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter <br />
+
 # Manifest Setup
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
