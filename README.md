@@ -60,5 +60,5 @@ https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6 <br
 
 Target SDK version: 34 <br />
 Minimum SDK version: 29 <br />
-Kotlin version: 1.9.23 <br />
-Gradle version: 8.4.0 <br />
+Kotlin version: 2.0.0 <br />
+Gradle version: 8.4.1 <br />
