@@ -2,6 +2,7 @@ package com.nicos.sampleforegroundservice
 
 import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
@@ -22,9 +23,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.core.app.ActivityCompat
 import com.nicos.sampleforegroundservice.service.LocationService
 import com.nicos.sampleforegroundservice.ui.theme.SampleForegroundServiceTheme
 import com.nicos.sampleforegroundservice.utils.secure_share_preferences.SecureSharePreferences
+import kotlinx.coroutines.launch
 
 const val RESTART_SERVICE = "restart_service"
 
@@ -49,14 +52,28 @@ class MainActivity : ComponentActivity() {
 fun StartServiceButton() {
     val context = LocalContext.current
     val secureSharePreferences = SecureSharePreferences(context = context)
+    val permissionBackgroundLocationLauncher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGrande ->
+        if (isGrande) {
+            context.startService(Intent(context, LocationService::class.java))
+            secureSharePreferences.saveBooleanValue(RESTART_SERVICE, true)
+            Toast.makeText(context, R.string.starting_service, Toast.LENGTH_SHORT).show()
+        }
+    }
     val permissionLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissionList ->
         permissionList.forEach { (permission, isGrande) ->
-            if (isGrande) context.startService(Intent(context, LocationService::class.java))
+            if (ActivityCompat.checkSelfPermission(
+                    context, Manifest.permission.ACCESS_COARSE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                    context, Manifest.permission.ACCESS_FINE_LOCATION
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                permissionBackgroundLocationLauncher.launch(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+            }
         }
-        secureSharePreferences.saveBooleanValue(RESTART_SERVICE, true)
-        Toast.makeText(context, R.string.starting_service, Toast.LENGTH_SHORT).show()
     }
     Column(
         verticalArrangement = Arrangement.Center,
@@ -82,7 +99,6 @@ private fun requestForPermissionAndStartTheService(permissionLauncher: ManagedAc
             arrayOf(
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
                 Manifest.permission.POST_NOTIFICATIONS
             )
         )
@@ -91,7 +107,6 @@ private fun requestForPermissionAndStartTheService(permissionLauncher: ManagedAc
             arrayOf(
                 Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_BACKGROUND_LOCATION,
             )
         )
     }
