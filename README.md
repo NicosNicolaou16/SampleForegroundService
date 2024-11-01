@@ -58,7 +58,7 @@ https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-
 ## Check my article 
 https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6 <br />
 
-Target SDK version: 34 <br />
+Target SDK version: 35 <br />
 Minimum SDK version: 29 <br />
-Kotlin version: 2.0.20 <br />
-Gradle version: 8.6.1 <br />
+Kotlin version: 2.0.21 <br />
+Gradle version: 8.7.2 <br />
