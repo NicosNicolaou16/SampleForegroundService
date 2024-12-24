@@ -53,11 +53,6 @@ https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter <br />
 </manifest>
 ```
 
-# References
-
-https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
-https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device <br />
-
 ## Check my article
 
 https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6 <br />
@@ -68,3 +63,8 @@ Target SDK version: 35 <br />
 Minimum SDK version: 29 <br />
 Kotlin version: 2.0.21 <br />
 Gradle version: 8.7.2 <br />
+
+# References
+
+https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
+https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device <br />
