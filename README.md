@@ -49,7 +49,7 @@ android.permission.FOREGROUND_SERVICE_LOCATION" />`, depends on the type of fore
 ```
 
 > [!IMPORTANT]  
-> Check my article for setup :point_right: [Foreground Service in Android - Medium](https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6) :point_left: <br />
+> Check my article for the setup :point_right: [Foreground Service in Android - Medium](https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6) :point_left: <br />
 
 > [!IMPORTANT]
 > Similar project with (Dart Language) :point_right: [SampleForegroundServiceFlutter](https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter) :point_left: <br />
