@@ -1,9 +1,8 @@
 # Sample Foreground Service
 
-This sample project shows the setup for the foreground service. The service in this sample project
-is a foreground service to request location.
-The permission for <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-is depend of the foreground service type.
+This sample project demonstrates the setup for a foreground service. The service in this project is
+used to request location updates. The required permission, `<uses-permission android:name="
+android.permission.FOREGROUND_SERVICE_LOCATION" />`, depends on the type of foreground service.
 
 # Setup
 
