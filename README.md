@@ -53,9 +53,12 @@ https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter <br />
 </manifest>
 ```
 
-## Check my article
+> [!IMPORTANT]  
+> Check my article :point_right: [Foreground Service in Android - Medium](https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6) :point_left: <br />
 
-https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6 <br />
+
+> [!IMPORTANT]
+> Similar project with (Dart Language) :point_right: [SampleForegroundServiceFlutter](https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter) :point_left: <br />
 
 # Versioning
 
