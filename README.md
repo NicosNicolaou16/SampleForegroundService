@@ -5,10 +5,6 @@ is a foreground service to request location.
 The permission for <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
 is depend of the foreground service type.
 
-## Similar project with (Dart Language)
-
-https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter <br />
-
 # Setup
 
 ## Manifest Setup
@@ -55,7 +51,6 @@ https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter <br />
 
 > [!IMPORTANT]  
 > Check my article :point_right: [Foreground Service in Android - Medium](https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6) :point_left: <br />
-
 
 > [!IMPORTANT]
 > Similar project with (Dart Language) :point_right: [SampleForegroundServiceFlutter](https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter) :point_left: <br />
