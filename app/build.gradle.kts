@@ -1,12 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.compose") version "2.0.21"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.1.20"
 }
 
 android {
     namespace = "com.nicos.sampleforegroundservice"
-    buildToolsVersion = "35.0.0"
+    buildToolsVersion = "35.0.1"
     compileSdk = 35
 
     defaultConfig {
