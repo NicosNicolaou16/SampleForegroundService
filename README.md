@@ -59,7 +59,7 @@ android.permission.FOREGROUND_SERVICE_LOCATION" />`, depends on the type of fore
 Target SDK version: 35 <br />
 Minimum SDK version: 29 <br />
 Kotlin version: 2.1.20 <br />
-Gradle version: 8.9.0 <br />
+Gradle version: 8.9.1 <br />
 
 # References
 
