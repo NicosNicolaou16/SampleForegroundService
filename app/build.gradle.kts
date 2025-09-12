@@ -51,7 +51,7 @@ android {
     }
 }
 
-val securityCryptoVersion by extra("1.1.0-alpha07")
+val securityCryptoVersion by extra("1.1.0")
 
 dependencies {
 
