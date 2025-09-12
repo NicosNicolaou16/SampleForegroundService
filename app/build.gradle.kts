@@ -6,13 +6,13 @@ plugins {
 
 android {
     namespace = "com.nicos.sampleforegroundservice"
-    buildToolsVersion = "35.0.1"
-    compileSdk = 35
+    buildToolsVersion = "36.0.0"
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.nicos.sampleforegroundservice"
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
