@@ -27,7 +27,6 @@ import androidx.core.app.ActivityCompat
 import com.nicos.sampleforegroundservice.service.LocationService
 import com.nicos.sampleforegroundservice.ui.theme.SampleForegroundServiceTheme
 import com.nicos.sampleforegroundservice.utils.secure_share_preferences.SecureSharePreferences
-import kotlinx.coroutines.launch
 
 const val RESTART_SERVICE = "restart_service"
 
