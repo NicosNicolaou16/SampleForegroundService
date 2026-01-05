@@ -74,6 +74,6 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    //Android Native Security
+    // Android Native Security
     implementation("androidx.security:security-crypto:$securityCryptoVersion")
 }
