@@ -65,3 +65,25 @@ Gradle version: 9.1.0 <br />
 
 https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
 https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device <br />
+
+
+## 🔧 Versioning
+
+- **Target SDK:** **36**
+- **Minimum SDK:** **29**
+- **Kotlin Version:** **2.3.10**
+- **Gradle Version:** **9.1.0**## 📚 APIs & References
+
+## 📚 References
+
+- **Android Developers:** [Foreground service types are required](https://developer.android.com/about/versions/14/changes/fgs-types-required)
+- **Stack Overflow:** [Auto-run service after reboot](https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device)
+
+## ⭐ Stargazers
+
+If you find this project useful, please give it a star!  
+[View Stargazers on GitHub](https://github.com/NicosNicolaou16/SampleForegroundService/stargazers)
+
+## 🙏 Support & Contributions
+
+This project is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
