@@ -73,12 +73,6 @@ To use a foreground service for location, you must declare the appropriate permi
 </manifest>
 ```
 
-# References
-
-https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
-https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-service-after-reboot-of-device <br />
-
-
 ## 🔧 Versioning
 
 - **Target SDK:** **36**
