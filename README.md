@@ -73,13 +73,6 @@ To use a foreground service for location, you must declare the appropriate permi
 </manifest>
 ```
 
-# Versioning
-
-Target SDK version: 36 <br />
-Minimum SDK version: 29 <br />
-Kotlin version: 2.3.10 <br />
-Gradle version: 9.1.0 <br />
-
 # References
 
 https://developer.android.com/about/versions/14/changes/fgs-types-required <br />
