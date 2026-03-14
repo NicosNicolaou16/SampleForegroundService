@@ -72,7 +72,7 @@ https://stackoverflow.com/questions/14385231/android-broadcastreceiver-auto-run-
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.3.10**
-- **Gradle Version:** **9.1.0**## 📚 APIs & References
+- **Gradle Version:** **9.1.0**
 
 ## 📚 References
 
