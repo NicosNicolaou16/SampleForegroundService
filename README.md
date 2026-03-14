@@ -73,12 +73,6 @@ To use a foreground service for location, you must declare the appropriate permi
 </manifest>
 ```
 
-> [!IMPORTANT]  
-> Check my article for the setup :point_right: [Foreground Service in Android - Medium](https://medium.com/@nicosnicolaou/foreground-service-in-android-9ff18be69ef6) :point_left: <br />
-
-> [!IMPORTANT]
-> Similar project with (Dart Language) :point_right: [SampleForegroundServiceFlutter](https://github.com/NicosNicolaou16/SampleForegroundServiceFlutter) :point_left: <br />
-
 # Versioning
 
 Target SDK version: 36 <br />
