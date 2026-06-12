@@ -23,10 +23,10 @@ import com.nicos.sampleforegroundservice.R
 class LocationService : Service(), LocationListener {
 
     companion object {
-        private const val locationChannelId = "locationChannelId"
-        private const val channelName = "locationName"
-        private const val minTimeLocationUpdateInMillisecond = 10000L
-        private const val minDistanceLocationUpdateInMeter = 1000F
+        private const val LOCATION_CHANNEL_ID = "locationChannelId"
+        private const val CHANNEL_NAME = "locationName"
+        private const val MIN_TIME_LOCATION_UPDATE_IN_MILLISECOND = 10000L
+        private const val MIN_DISTANCE_LOCATION_UPDATE_IN_METER = 1000F
     }
 
     override fun onCreate() {
@@ -38,13 +38,13 @@ class LocationService : Service(), LocationListener {
      * The Notification is mandatory for background services
      * */
     private fun notificationService() {
-        Notification.Builder(this, locationChannelId).apply {
+        Notification.Builder(this, LOCATION_CHANNEL_ID).apply {
             setContentTitle(getString(R.string.location_service))
             setOngoing(true)
             setContentText(getString(R.string.running_service_to_find_you_location))
             setSmallIcon(R.drawable.ic_notifcation_icon)
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            NotificationChannel(locationChannelId, channelName, importance).apply {
+            NotificationChannel(LOCATION_CHANNEL_ID, CHANNEL_NAME, importance).apply {
                 description = getString(R.string.running_service_to_find_you_location)
                 with((this@LocationService.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)) {
                     createNotificationChannel(this@apply)
@@ -78,8 +78,8 @@ class LocationService : Service(), LocationListener {
     private fun findTheLocationForSdkBiggerThan30(locationManager: LocationManager) {
         locationManager.requestLocationUpdates(
             LocationManager.FUSED_PROVIDER,
-            minTimeLocationUpdateInMillisecond,
-            minDistanceLocationUpdateInMeter,
+            MIN_TIME_LOCATION_UPDATE_IN_MILLISECOND,
+            MIN_DISTANCE_LOCATION_UPDATE_IN_METER,
             this@LocationService
         )
     }
@@ -100,8 +100,8 @@ class LocationService : Service(), LocationListener {
             if (provider != null) {
                 locationManager.requestLocationUpdates(
                     provider,
-                    minTimeLocationUpdateInMillisecond,
-                    minDistanceLocationUpdateInMeter,
+                    MIN_TIME_LOCATION_UPDATE_IN_MILLISECOND,
+                    MIN_DISTANCE_LOCATION_UPDATE_IN_METER,
                     this@LocationService
                 )
             }
