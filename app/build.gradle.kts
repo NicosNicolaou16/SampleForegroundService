@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.nicos.sampleforegroundservice"
-    buildToolsVersion = "36.0.0"
+    buildToolsVersion = "37.0.0"
     compileSdk = 37
 
     defaultConfig {
