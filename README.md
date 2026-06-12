@@ -78,7 +78,7 @@ To use a foreground service for location, you must declare the appropriate permi
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.3.10**
-- **Gradle Version:** **9.1.0**
+- **Gradle Version:** **9.2.1**
 
 ## 📚 References
 
