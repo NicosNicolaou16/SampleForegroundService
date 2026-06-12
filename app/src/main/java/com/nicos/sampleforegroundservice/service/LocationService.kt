@@ -76,16 +76,6 @@ class LocationService : Service(), LocationListener {
     }
 
     private fun findTheLocationForSdkBiggerThan30(locationManager: LocationManager) {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            return
-        }
         locationManager.requestLocationUpdates(
             LocationManager.FUSED_PROVIDER,
             minTimeLocationUpdateInMillisecond,
@@ -108,16 +98,6 @@ class LocationService : Service(), LocationListener {
                 false
             )
             if (provider != null) {
-                if (ActivityCompat.checkSelfPermission(
-                        this@LocationService,
-                        Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                        this@LocationService,
-                        Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
-                ) {
-                    return
-                }
                 locationManager.requestLocationUpdates(
                     provider,
                     minTimeLocationUpdateInMillisecond,
