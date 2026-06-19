@@ -51,7 +51,7 @@ class LocationService : Service(), LocationListener {
                 }
             }
             try {
-                //need core 1.12 and higher and SDK 29 and higher
+                // need core 1.12 and higher and SDK 29 and higher
                 ServiceCompat.startForeground(
                     this@LocationService, 1, this.build(),
                     ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
