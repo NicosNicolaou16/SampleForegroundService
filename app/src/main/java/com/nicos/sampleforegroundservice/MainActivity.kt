@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.nicos.sampleforegroundservice.service.LocationService
 import com.nicos.sampleforegroundservice.ui.theme.SampleForegroundServiceTheme
 import com.nicos.sampleforegroundservice.utils.secure_share_preferences.SecureSharePreferences
@@ -55,7 +56,13 @@ fun StartServiceButton() {
         ActivityResultContracts.RequestPermission()
     ) { isGrande ->
         if (isGrande) {
-            context.startService(Intent(context, LocationService::class.java))
+            /**
+             * Start foreground service
+             * */
+            ContextCompat.startForegroundService(
+                context,
+                Intent(context, LocationService::class.java)
+            )
             secureSharePreferences.saveBooleanValue(RESTART_SERVICE, true)
             Toast.makeText(context, R.string.starting_service, Toast.LENGTH_SHORT).show()
         }
